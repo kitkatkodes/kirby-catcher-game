@@ -13,6 +13,7 @@ function preload() {
 
 
 function setup() {
+  userStartAudio(); 
   createCanvas(400, 400);
 
   //##
