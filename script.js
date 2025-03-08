@@ -6,9 +6,9 @@ let button;
 
 function preload() {
   // Preload images or sounds here
-  kirbyImg = loadImage('/assets/kirby.png');
-  backImg=loadImage('/assets/pls.jpg');
-  gameSound=loadSound('/assets/zelda.mp3');
+  kirbyImg = loadImage('kirby.png');
+  backImg=loadImage('pls.jpg');
+  gameSound=loadSound('zelda.mp3');
 }
 
 
