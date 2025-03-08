@@ -8,17 +8,42 @@ function preload() {
   // Preload images or sounds here
   kirbyImg = loadImage('kirby.png');  // ✅ Corrected path for GitHub Pages
   backImg = loadImage('pls.jpg');  
-  gameSound = loadSound('zelda.mp3');
+
+  // ✅ Fix: Check if p5.sound is loaded before using loadSound
+  if (typeof loadSound === "function") {
+    gameSound = loadSound('zelda.mp3');
+  } else {
+    console.log("p5.sound is not loaded, skipping sound.");
+  }
 }
 
 function setup() {
   createCanvas(400, 400);
 
-  // Require user interaction before starting sound
-  userStartAudio().then(() => {
-    gameSound.loop();
-  }).catch(err => {
-    console.log("Audio blocked until user interaction:", err);
+  // ✅ Fix: Ensure userStartAudio() exists before calling it
+  if (typeof userStartAudio === "function") {
+    userStartAudio().then(() => {
+      if (gameSound) {
+        gameSound.loop();
+      }
+    }).catch(err => {
+      console.log("Audio blocked until user interaction:", err);
+    });
+  } else {
+    console.log("p5.sound is not loaded, skipping audio start.");
+  }
+
+  // Create a manual start button if audio is blocked
+  let soundButton = createButton("Enable Sound");
+  soundButton.position(10, 10);
+  soundButton.mousePressed(() => {
+    if (typeof userStartAudio === "function") {
+      userStartAudio();
+      if (gameSound) {
+        gameSound.loop();
+      }
+      soundButton.remove(); // Remove button after enabling sound
+    }
   });
 
   //##
@@ -136,3 +161,4 @@ function draw() {
 }
 
 //Code written by Shreyasi K.
+
