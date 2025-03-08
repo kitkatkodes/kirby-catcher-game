@@ -64,7 +64,8 @@ function setup() {
   /// added a call back for button
   button.mousePressed(buttonClicked);
 
-  catcher = new Sprite();
+  // ✅ Fix: Ensure `Sprite` is properly defined by using `new p5.Sprite()`
+  catcher = new p5.Sprite();
   catcher.img = kirbyImg;
   catcher.scale = 0.05;
   catcher.collider = "k";
@@ -87,7 +88,7 @@ function setup() {
   .boobb...bboob.
   .bbb.......bbb.`;
 
-  star = new Sprite();
+  star = new p5.Sprite();
   star.img = spriteArt(starText, 5);
   star.scale = 0.6;
   star.vel = createVector(1, 3);
@@ -160,5 +161,5 @@ function draw() {
   text('Score = ' + score, 10, 10);
 }
 
-//Code written by Shreyasi K.
+//Code written by Shreyasi Kirti.
 
