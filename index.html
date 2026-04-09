@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Kirby Catcher Game</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-
-  <!-- ✅ Only one p5.js import -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.sound/1.7.0/p5.sound.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/p5play@3.3.2/lib/p5play.min.js"></script>
-
-</head>
-
-<body>
-  <script src="script.js"></script>
-</body>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Kirby Catcher Game</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <!-- Fix: p5.sound is an addon inside p5.js, not a separate cdnjs package -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+    <!-- p5play -->
+    <script src="https://cdn.jsdelivr.net/npm/p5play@3.3.2/lib/p5play.min.js"></script>
+  </head>
+  <body>
+    <script src="script.js"></script>
+  </body>
 </html>
-
